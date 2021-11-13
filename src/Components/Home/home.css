@@ -4,6 +4,9 @@
     margin-left: 265px;
     grid-template-columns: repeat(3, 1fr);
 }
+.home-title {
+    font-family: "Courier New", Courier, monospace;
+}
 .card {
     margin-bottom: 30px;
 }

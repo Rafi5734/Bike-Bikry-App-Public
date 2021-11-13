@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import "./addService.css";
+import { Link } from "react-router-dom";
 const AddService = () => {
     const imgRef = useRef("");
     const nameRef = useRef("");
@@ -16,7 +17,7 @@ const AddService = () => {
         const rating = ratingRef.current?.value;
         const price = priceRef.current?.value;
 
-        const newTour = {
+        const newService = {
             name: name,
             description: description,
             price: price,
@@ -24,11 +25,17 @@ const AddService = () => {
             image: imgUrl,
         };
 
-        fetch("https://ghastly-castle-73206.herokuapp.com/tours", {
+        fetch("https://stark-spire-82280.herokuapp.com/services", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newTour),
-        });
+            body: JSON.stringify(newService),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.insertedId) {
+                    alert("service added successfully");
+                }
+            });
         // console.log(typeof imgUrl);
     };
     return (
@@ -87,9 +94,11 @@ const AddService = () => {
                         />
                         <label htmlFor="floatingPasswordCustom">Price</label>
                     </Form.Floating>
+                    {/* <Link to="/service"> */}
                     <Button variant="outline-success" type="submit">
                         Submit
                     </Button>{" "}
+                    {/* </Link> */}
                 </Form>
             </Container>
         </div>

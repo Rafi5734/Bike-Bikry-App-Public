@@ -7,7 +7,7 @@ const ManageOrder = () => {
     const { user } = useAuth();
     const [manageOrder, setManageOrder] = useState([]);
     useEffect(() => {
-        fetch("https://ghastly-castle-73206.herokuapp.com/manageorder")
+        fetch("https://stark-spire-82280.herokuapp.com/allorder")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -20,13 +20,10 @@ const ManageOrder = () => {
             "Are you sure you want to delete this order?"
         );
         if (proceedToDelete) {
-            fetch(
-                `https://ghastly-castle-73206.herokuapp.com/manageorder/${id}`,
-                {
-                    method: "DELETE",
-                    headers: { "content-type": "application/json" },
-                }
-            )
+            fetch(`https://stark-spire-82280.herokuapp.com/allorder/${id}`, {
+                method: "DELETE",
+                headers: { "content-type": "application/json" },
+            })
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.deletedCount > 0) {
@@ -64,6 +61,7 @@ const ManageOrder = () => {
                             </Card.Text>
 
                             <Card.Text> Price: $ {manageOrder.price}</Card.Text>
+                            <Card.Text> User: {manageOrder.email}</Card.Text>
                             <Button
                                 variant="primary"
                                 onClick={() => handleDelete(manageOrder._id)}

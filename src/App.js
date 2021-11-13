@@ -12,9 +12,13 @@ import MyOrder from "./Components/MyOrder/MyOrder";
 import PlaceOrder from "./Components/PlaceOrder/PlaceOrder";
 import ManageOrder from "./Components/ManageOrder/ManageOrder";
 import Details from "./Components/Details/Details";
-import AddService from "./Components/AddService/AddService";
 import UpdateStatus from "./Components/UpdateStatus/UpdateStatus";
+import Dashboard from "./Components/Dashboard/Dashboard";
 import NotFound from "./Components/404/NotFound";
+import LogIn from "./Components/LogIn/LogIn";
+import ModalWindow from "./Components/ModalWindow/ModalWindow";
+import OurReview from "./Components/OurReview/OurReview";
+import BuildAdmin from "./Components/BuildAdmin/BuildAdmin";
 
 function App() {
     return (
@@ -32,8 +36,8 @@ function App() {
                         <Route path="/service">
                             <Services></Services>
                         </Route>
-                        <Route path="/about">
-                            <About></About>
+                        <Route path="/review">
+                            <OurReview></OurReview>
                         </Route>
                         <Route path="/signin">
                             <SignIn></SignIn>
@@ -48,9 +52,6 @@ function App() {
                         <Route path="/manageorder">
                             <ManageOrder></ManageOrder>
                         </Route>
-                        <Route path="/addservice">
-                            <AddService></AddService>
-                        </Route>
                         <Route path="/myorder">
                             <MyOrder></MyOrder>
                         </Route>
@@ -61,6 +62,16 @@ function App() {
 
                         <Route path="/details/:detailsId">
                             <Details></Details>
+                        </Route>
+
+                        <Route path="/dashboard">
+                            <Dashboard></Dashboard>
+                        </Route>
+                        <Route path="/buildadmin/:adminId">
+                            <BuildAdmin></BuildAdmin>
+                        </Route>
+                        <Route path="/login">
+                            <LogIn></LogIn>
                         </Route>
                         <Route path="*">
                             <NotFound></NotFound>

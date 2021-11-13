@@ -13,3 +13,20 @@
 .icons {
     font-size: 2rem;
 }
+.about-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.main-about {
+    padding: 10px;
+    border-bottom: 1px solid #000;
+}
+.choose-title {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+}
+.choose-main {
+    font-family: "Courier New", Courier, monospace;
+}

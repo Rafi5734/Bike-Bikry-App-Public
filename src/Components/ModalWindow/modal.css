@@ -1,0 +1,17 @@
+.modal-form {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.modal-input {
+    font-size: 16px;
+    padding: 10px;
+    width: 300px;
+}
+.modal-btn {
+    width: 300px;
+    padding: 10px;
+    width: 300px;
+}

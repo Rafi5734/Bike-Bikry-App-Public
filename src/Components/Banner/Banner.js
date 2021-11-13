@@ -1,22 +1,28 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import "./banner.css";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
     return (
-        <div>
+        <Container>
             <div className="banner-class">
                 <div className="banner-description">
-                    <h1 className="banner-heading">YACHT & MARINE</h1>
-                    <hr className="banner-hr" />
+                    <p className="lead">New to Motocross</p>
+                    <h1 className="banner-heading">RIDER CLASS</h1>
                     <p className="banner-para">
-                        Treat Yourself with an unforgettable saliling
-                        experience. Grab a last minute bargain with one of our
-                        late curise deals.
+                        We offer new rider classes every week. Theses courses
+                        are free for all types of riders from newbies to
+                        professional racers.
                     </p>
-                    <button className="banner-btn lead">Search</button>
+                    <Link to="/service">
+                        <button className="banner-btn lead">
+                            Explore More
+                        </button>
+                    </Link>
                 </div>
             </div>
-        </div>
+        </Container>
     );
 };
 

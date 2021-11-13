@@ -20,6 +20,25 @@ const PlaceOrder = () => {
         console.log(data);
     };
 
+    console.log(products);
+
+    console.log(user.email, user.metadata.lastSignInTime);
+
+    const userPush = (data) => {
+        const userName = user.email;
+        const itemName = products.name;
+        const time = user.metadata.lastSignInTime;
+
+        const userInfo = { userName, time, itemName };
+        fetch("https://stark-spire-82280.herokuapp.com/myorder", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(userInfo),
+        });
+    };
+
     return (
         <div className="place-order-form">
             <h1 className="mt-5 mb-5 place-order">Place Your Order</h1>
@@ -29,7 +48,7 @@ const PlaceOrder = () => {
                     className="place-order-form"
                 >
                     <input
-                        defaultValue={user.email} //my email is null. for that this field shows empty.
+                        defaultValue={user.email}
                         {...register("email", {
                             required: true,
                         })}
@@ -60,7 +79,7 @@ const PlaceOrder = () => {
                         placeholder="Price"
                     />
                     <input
-                        value={placeOrders.name}
+                        defaultValue="Dhaka"
                         type="text"
                         {...register("destination", {})}
                         placeholder="Destination"
@@ -70,6 +89,7 @@ const PlaceOrder = () => {
                             type="submit"
                             value="place order"
                             className="submit-btn"
+                            onClick={userPush}
                         >
                             Place Order
                         </button>
@@ -81,6 +101,3 @@ const PlaceOrder = () => {
 };
 
 export default PlaceOrder;
-{
-    /* <input type="submit" value="place order" className="submit-btn" />; */
-}

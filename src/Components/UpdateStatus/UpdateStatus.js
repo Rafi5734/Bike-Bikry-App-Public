@@ -4,10 +4,11 @@ import { Button } from "react-bootstrap";
 import "./updateStatus.css";
 const UpdateStatus = () => {
     const [update, setUpdate] = useState({});
+    const [success, setSuccess] = useState(false);
     const { updateId } = useParams();
 
     useEffect(() => {
-        fetch(`https://ghastly-castle-73206.herokuapp.com/update/${updateId}`)
+        fetch(`https://stark-spire-82280.herokuapp.com/update/${updateId}`)
             .then((res) => res.json())
             .then((data) => {
                 setUpdate(data);
@@ -21,13 +22,17 @@ const UpdateStatus = () => {
     };
 
     const handleUpdateStatus = () => {
-        fetch(`https://ghastly-castle-73206.herokuapp.com/update/${updateId}`, {
+        fetch(`https://stark-spire-82280.herokuapp.com/update/${updateId}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(update),
         })
             .then((res) => res.json())
             .then((data) => {
+                if (data.modifiedCount) {
+                    alert("Admin Make Successfully");
+                    setSuccess(true);
+                }
                 console.log(data);
             });
     };
@@ -43,7 +48,7 @@ const UpdateStatus = () => {
                 onChange={handleNameChange}
                 className="update-input"
             ></input>
-            <Link to="/myorder">
+            <Link to="/manageorder">
                 <Button
                     variant="success"
                     className="ms-3"

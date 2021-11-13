@@ -6,26 +6,24 @@ import "./myOrder.css";
 const Cart = () => {
     const { btn, handleDeleteBtn, cartItems, user } = useAuth();
 
-    console.log(user.displayName);
-    // const [deleteItem, setDeleteItem] = useState(null);
-
     const [updateCartItems, setUpdateCartItems] = useState([]);
     useEffect(() => {
-        console.log(user.displayName);
-        fetch("https://ghastly-castle-73206.herokuapp.com/myorder")
+        fetch(
+            `https://stark-spire-82280.herokuapp.com/placeorder?email=${user.email}`
+        )
             .then((res) => res.json())
             .then((data) => {
                 setUpdateCartItems(data);
-                console.log(data);
+                // console.log(data);
             });
-    }, []);
+    }, [user.email]);
 
     const handleDelete = (id) => {
         const proceedToDelete = window.confirm(
             "Are You want to delete this item?"
         );
         if (proceedToDelete) {
-            fetch(`https://ghastly-castle-73206.herokuapp.com/myorder/${id}`, {
+            fetch(`https://stark-spire-82280.herokuapp.com/placeorder/${id}`, {
                 method: "DELETE",
                 headers: { "content-type": "application/json" },
             })
@@ -39,18 +37,9 @@ const Cart = () => {
                         setUpdateCartItems(remainingItems);
                         // setDeleteItem(true);
                     }
-                    // if (updateCartItems.length > 1) {
-                    //     console.log(user);
-                    //     const filterOrder = updateCartItems.filter(
-                    //         (o) => o.user === user.displayName
-                    //     );
-                    //     setUpdateCartItems(filterOrder);
-                    // }
                 });
         }
     };
-
-    console.log(user.displayName);
 
     return (
         <div>
@@ -72,24 +61,15 @@ const Cart = () => {
                                     {i.rating}
                                 </i>
                             </Card.Text>
-                            <Card.Text> User Name: {i.user}</Card.Text>
+                            <Card.Text> User Name: {i.email}</Card.Text>
                             <button
                                 type="button"
                                 className="btn btn-outline-danger me-3 ms-4"
                                 onClick={() => handleDelete(i._id)}
+                                updateCartItems={updateCartItems}
                             >
                                 Delete
                             </button>
-                            <input
-                                type="text"
-                                value={i.status}
-                                className="status-input"
-                            ></input>
-                            <Link to={`/update/${i._id}`}>
-                                <Button variant="warning" className="ms-5 mt-3">
-                                    Update Status{" "}
-                                </Button>{" "}
-                            </Link>
                         </Card.Body>
                     </Card>
                 ))}

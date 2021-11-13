@@ -1,75 +1,65 @@
 [
     {
-        "name": "DUBAI",
-        "description": "Dubai is a city and emirate in the United Arab Emirates known for luxury shopping, ultramodern architecture and a lively nightlife scene. Burj Khalifa, an 830m-tall tower, dominates the skyscraper-filled skyline. At its foot lies Dubai Fountain, with jets and lights choreographed to music.",
-        "price": 1590,
-
-        "rating": 4,
-
-        "image": "https://bonvoyage.qodeinteractive.com/wp-content/uploads/2018/02/tour-3-img-1.jpg"
-    },
-    {
-        "name": "BAY OF PALMA",
-        "description": "The Bay of Palma is a bay located to the south of Palma, Majorca, Spain. It is in the south-west of the Balearic Island of Mallorca. Palma de Majorca's harbour is located on the northern shores along with some famous beaches.",
-        "rating": 5,
+        "name": "YAMAHA",
+        "description": "Yamaha MT-15 is a motorcycle manufactured by Yamaha since 2018. It based on the Yamaha YZF-R15, with 155cc water-cooled single-cylinder engine equipped with the mainframe and variable valve timing mechanism, the inverted front fork, etc.",
         "price": 1790,
-
-        "image": "https://bonvoyage.qodeinteractive.com/wp-content/uploads/2018/02/tour-3-img-2.jpg"
+        "image": "https://www.bikebd.com/wp-content/uploads/2016/05/kawasaki-motorcycle-showroom-in-bangladesh.jpg"
     },
     {
-        "name": "TESSALONIKI",
-        "description": "Thessaloniki is a Greek port city on the Thermaic Gulf of the Aegean Sea. Evidence of Roman, Byzantine and Ottoman history remains, especially around Ano Poli, the upper town. The ruins of Roman Emperor Galerius’ 4th-century palace include the Rotunda that has been both a church and a mosque. ",
-        "rating": 4.5,
+        "name": "HONDA",
+        "description": "Honda Motor Company, Ltd. is a Japanese public multinational conglomerate manufacturer of automobiles, motorcycles, and power equipment, headquartered in Minato, Tokyo, Japan.",
+        "price": 1895,
+        "image": "https://image.freepik.com/free-photo/motorcycle-with-helmet_23-2148875785.jpg"
+    },
+    {
+        "name": "VINTAGES",
+        "description": "According the Antique Motorcycle Club of America, an antique motorcycle is one that is 35 years or older. This is the only “true” official designation in the U.S., but because some states allow motorcycles to be registered or licensed as antiques after just 20 years, sometimes the definition becomes unclear. ",
         "price": 1660,
-
-        "image": "https://bonvoyage.qodeinteractive.com/wp-content/uploads/2018/02/tour-3-img-3.jpg"
+        "image": "https://assets.dnainfo.com/photo/2017/5/1493847930-297979/extralarge.jpg"
     },
     {
-        "name": "POSITANO",
-        "description": "Positano is a cliffside village on southern Italy's Amalfi Coast. It's a well-known holiday destination with a pebble beachfront and steep, narrow streets lined with boutiques and cafes. Its Chiesa di Santa Maria Assunta features a majolica-tiled dome and a 13th-century Byzantine icon.",
-        "rating": 3,
+        "name": "TVs",
+        "description": "TVS Motor Company is an Indian multinational automotive company that manufactures motorcycles, scooters, and three-wheelers, headquartered in Chennai, India. ",
+
         "price": 1920,
 
-        "image": "https://bonvoyage.qodeinteractive.com/wp-content/uploads/2018/02/tour-3-img-6.jpg"
+        "image": "https://images.carandbike.com/bike-images/medium/tvs/raider/tvs-raider.webp?v=10"
     },
     {
-        "name": "SANTORINI",
-        "description": "Santorini is one of the Cyclades islands in the Aegean Sea. It was devastated by a volcanic eruption in the 16th century BC, forever shaping its rugged landscape. The whitewashed, cubiform houses of its 2 principal towns, Fira and Oia, cling to cliffs above an underwater caldera (crater).",
-        "rating": 5,
+        "name": "SUZUKI",
+        "description": "Suzuki Motor Corporation is a Japanese multinational corporation headquartered in Minami-ku, Hamamatsu, Japan. Suzuki manufactures automobiles, four-wheel drive vehicles, motorcycles, all-terrain vehicles.",
         "price": 1760,
 
-        "image": "https://bonvoyage.qodeinteractive.com/wp-content/uploads/2018/02/tour-3-img-7.jpg"
+        "image": "https://www.drivespark.com/images/2019-08/suzuki-gixxer-sf-250-motogp-5.jpg"
     },
     {
-        "name": "CALA MESQUIDA",
-        "description": "Pretty beach, water clear and beach clean. Parking limited. Need to arrive very early to get a space. Beautiful place, glad I visited.Recommend this beach. Clear beautiful turquoise water, not crowded around end of August, spectacular walk up the hill side. Lovely white sand.",
-        "rating": 4,
+        "name": "HERO",
+        "description": "Hero MotoCorp Limited, formerly Hero Honda, is an Indian multinational motorcycle and scooter manufacturer headquartered in New Delhi, India.",
         "price": 2200,
-
-        "image": "https://bonvoyage.qodeinteractive.com/wp-content/uploads/2018/02/tour-3-img-8.jpg"
+        "image": "https://static.autox.com/uploads/bikes/2017/05/1486030508-hero-hf-deluxe.jpg"
     },
     {
-        "name": "HALKIDIKI",
-        "description": "Halkidiki is a region in northern Greece known for its jutting peninsulas, which feature Mediterranean forests that give way to sandy beaches in sheltered bays. Kassandra, the westernmost peninsula, is the most developed, offering modern resorts and nightclubs. The region's notable.",
-        "rating": 4.1,
+        "name": "BAJAJ",
+        "description": "Bajaj Auto Limited is an Indian multinational two-wheeler and three-wheeler manufacturing company based in Pune, Maharashtra. It manufactures motorcycles, scooters and auto rickshaws.",
         "price": 1660,
-
-        "image": "https://bonvoyage.qodeinteractive.com/wp-content/uploads/2018/02/tour-3-img-10.jpg"
+        "image": "https://cdn.bajajauto.com/bajaj-images/home/110x.png"
     },
     {
-        "name": "SICILY",
-        "description": "Sicily, the largest Mediterranean island, is just off the  of Italy's. Its rich history is reflected in sites like the Valley of the Temples, the well-preserved ruins of 7 monumental, Doric-style Greek temples, and in the Byzantine mosaics at the Cappella Palatina.",
-        "rating": 3.8,
+        "name": "DUCATI",
+        "description": "Ducati Motor Holding S.p.A. is the motorcycle-manufacturing division of Italian company Ducati, headquartered in Bologna, Italy. ",
         "price": 1240,
-
-        "image": "https://bonvoyage.qodeinteractive.com/wp-content/uploads/2018/02/tour-3-img-6.jpg"
+        "image": "https://images.ctfassets.net/x7j9qwvpvr5s/4tmKYOko7WVs6lt7ryhWrR/2311750e74833d0584c60a2d11e75d11/Model-Menu-MY20-Diavel-1260-Dark-Stealth.png"
     },
     {
-        "name": "IBIZA",
-        "description": "Ibiza is one of the Balearic islands, an archipelago of Spain in the Mediterranean Sea. It's well known for the lively nightlife in Ibiza Town and Sant Antoni, where major European nightclubs have summer outposts. It’s also home to quiet villages, yoga retreats and beaches.",
-        "rating": 4.2,
+        "name": "CFMOTO",
+        "description": "Founded in 1989，CFMOTO develops, manufactures, markets and delivers the world's most reliable and cost-effective motorcycles, all terrain vehicles.",
         "price": 1820,
-
-        "image": "https://bonvoyage.qodeinteractive.com/wp-content/uploads/2018/02/tour-3-img-5.jpg"
+        "image": "https://images.carandbike.com/bike-images/medium/cfmoto/650gt/cfmoto-650gt.jpg?v=5"
+    },
+    {
+        "name": "YAMAHA YZF R15",
+        "description": "Yamaha YZF R15 V3 is powered by 155 cc engine. This R15 V3 engine generates a power of 18.4 PS @ 10000 rpm and a torque of 14.2 Nm @ 7500 rpm. ",
+        "price": 1820,
+        "image": "https://cdn.autoportal.com/bp-v3/img/models/e3/f/3-4th.jpg"
     }
 ]

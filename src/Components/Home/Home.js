@@ -9,16 +9,27 @@ import { Col, Container, Row, Spinner } from "react-bootstrap";
 import TourInfo from "../TourInfo/TourInfo";
 import Choose from "../Choose/Choose";
 import PlaceOrder from "../PlaceOrder/PlaceOrder";
+import OurReview from "../OurReview/OurReview";
 
 const Home = () => {
     const { handleAddToCart, handleCart, products, isLoading } = useAuth();
-    // const [isLoading, setIsLoading] = useState(true);
+    const [filterProducts, setFilterProducts] = useState([]);
+
+    useEffect(() => {
+        fetch("https://stark-spire-82280.herokuapp.com/services")
+            .then((res) => res.json())
+            .then((data) => {
+                const filterItems = data.slice(0, 6);
+                setFilterProducts(filterItems);
+                // console.log(data);
+            });
+    }, []);
 
     return (
         <>
             <div>
                 <Banner></Banner>
-                <h1 className="tasks mt-5 mb-5">Our Tasks</h1>
+                <h1 className="tasks mt-5 mb-5 home-title">Our Tasks</h1>
                 <hr />
                 {isLoading ? (
                     <div>
@@ -30,7 +41,7 @@ const Home = () => {
                     </div>
                 ) : (
                     <div className="home-card">
-                        {products.map((item, index) => (
+                        {filterProducts.map((item, index) => (
                             <div className="card" style={{ width: "18rem" }}>
                                 <img
                                     src={item.image}
@@ -61,7 +72,8 @@ const Home = () => {
                     </div>
                 )}
 
-                <TourInfo></TourInfo>
+                {/* <TourInfo filterProducts={filterProducts}></TourInfo> */}
+                <OurReview></OurReview>
                 <Choose></Choose>
                 <Footer></Footer>
             </div>

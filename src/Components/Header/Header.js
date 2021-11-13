@@ -15,14 +15,16 @@ import useNumber from "../../Hooks/useNumber";
 import "./header.css";
 const Header = () => {
     const { user, googleSignOut, btn } = useAuth();
-    // console.log(btn);
 
     return (
         <div>
             <Navbar bg="light" expand="lg">
                 <Container>
                     <Navbar.Brand href="#" className="navbar-title">
-                        YACHT & MARINE{" "}
+                        <img
+                            src="https://cdn.shopify.com/s/files/1/0461/8371/0869/t/2/assets/logo.png?v=13690937016588724828"
+                            className="logo-img"
+                        ></img>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
@@ -35,18 +37,21 @@ const Header = () => {
                                 Home
                             </Link>
                             <Link to="/service" className="navbar-link">
-                                Services
+                                Explore
                             </Link>
 
-                            <Link to="/about" className="navbar-link">
-                                About Us
-                            </Link>
-                            {user.displayName ? (
+                            {/* <Link to="/review" className="navbar-link">
+                                Our Review
+                            </Link> */}
+                            {user.email ? (
                                 <div>
-                                    <Link to="/myorder" className="navbar-link">
-                                        My Orders
-                                    </Link>
                                     <Link
+                                        to="/dashboard"
+                                        className="navbar-link"
+                                    >
+                                        Dashboard
+                                    </Link>
+                                    {/* <Link
                                         to="/manageorder"
                                         className="navbar-link"
                                     >
@@ -57,19 +62,19 @@ const Header = () => {
                                         className="navbar-link"
                                     >
                                         Add a Service
-                                    </Link>
+                                    </Link> */}
                                 </div>
                             ) : null}
                         </Nav>
                         <Form className="d-flex">
                             <h5 className="user-name me-3 mt-2">
-                                {user.displayName}
+                                {user.email}
                             </h5>
                             {/* <img
                                 src={user.photoURL}
                                 className="sign-in-img img-fluid"
                             ></img> */}
-                            {user.displayName ? (
+                            {user?.email ? (
                                 <div>
                                     <Button
                                         variant="outline-success sign-btn text-nowrap"
@@ -81,7 +86,7 @@ const Header = () => {
                             ) : (
                                 <div>
                                     <Button variant="outline-success sign-btn text-nowrap">
-                                        <Link to="/signin">Sign In</Link>
+                                        <Link to="/register">Sign In</Link>
                                     </Button>
                                 </div>
                             )}

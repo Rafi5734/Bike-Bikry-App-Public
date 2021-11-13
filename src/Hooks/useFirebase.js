@@ -5,6 +5,8 @@ import {
     GoogleAuthProvider,
     onAuthStateChanged,
     signOut,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
 } from "firebase/auth";
 import { initializeAuthentication } from "../Firebase/firebase.initialize";
 
@@ -16,11 +18,14 @@ const useFirebase = () => {
     const auth = getAuth();
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
 
     const signInUsingGoogle = () => {
         setIsLoading(true);
         return signInWithPopup(auth, googleAuthProvider);
     };
+
+    // observe User State//////////////////////////////
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -31,6 +36,52 @@ const useFirebase = () => {
             setIsLoading(false);
         });
     }, []);
+
+    // user login//////////////////////////////////////
+    const logIn = (email, password, location, history) => {
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in
+                const redirect_uri = location.state?.from || "/home";
+                history.push(redirect_uri);
+                const user = userCredential.user;
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+    };
+    // user registration///////////////////////////////
+
+    const registerUser = (email, password, location, history) => {
+        setIsLoading(true);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in
+                // saveUser(email);
+                // saveUser(email);
+                const redirect_uri = location.state?.from || "/home";
+                history.push(redirect_uri);
+                const user = userCredential.user;
+
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            })
+            .finally(() => setIsLoading(false));
+    };
+
+    useEffect(() => {
+        fetch(`https://stark-spire-82280.herokuapp.com/user/${user?.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setAdmin(data.admin);
+            });
+    }, [user?.email]);
 
     const googleSignOut = () => {
         setIsLoading(true);
@@ -55,7 +106,7 @@ const useFirebase = () => {
     const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
-        fetch("https://ghastly-castle-73206.herokuapp.com/tours")
+        fetch("https://stark-spire-82280.herokuapp.com/services")
             .then((response) => response.json())
             .then((data) => {
                 setProduct(data);
@@ -66,23 +117,27 @@ const useFirebase = () => {
         // console.log(p);
     };
 
+    // console.log(user);
+
     const handleAddToCart = (index) => {
-        console.log(index);
         const foundData = products[index];
-        foundData.user = user?.displayName;
+        foundData.email = user?.email;
         foundData.status = "pending...";
-        // console.log(foundData);
-        fetch("https://ghastly-castle-73206.herokuapp.com/myorder", {
+        fetch("https://stark-spire-82280.herokuapp.com/placeorder", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(foundData),
-        });
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+            });
     };
 
-    // end data info
     return {
         cartItems,
         sortItems,
+        admin,
         user,
         signInUsingGoogle,
         googleSignOut,
@@ -92,15 +147,8 @@ const useFirebase = () => {
         products,
         setIsLoading,
         isLoading,
+        registerUser,
+        logIn,
     };
 };
 export default useFirebase;
-
-// const foundItem = btn.filter((item) => item.id === product.id);
-
-// if (foundItem.length > 0) {
-//     return alert("item already in the list");
-// }
-
-// console.log(newCart);
-// setBtn(newCart);

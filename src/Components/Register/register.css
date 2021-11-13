@@ -1,0 +1,11 @@
+.register-img {
+    margin-top: 3rem;
+    width: 500px;
+}
+
+@media only screen and (max-width: 450px) {
+    .register {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
