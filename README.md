@@ -1,7 +1,7 @@
 # BIKE BIKRY APP
 ## This apps Live Link is (https://simple-firebase-authenti-b3a2a.web.app/)
 - Here i create both frontend and backend intregation
-- i create also here services route for see all products.
-- manage order, my order, admin panale and user validation are also created
-- also i connect firebase authentication
+- I also created admin panel where have some special activity that can only do an admin.
+- For a Client, there are My Orders, Payment of Your Bill, and Our Review options created.
+- For authentication, I use Firebase and also use No-SQL (MongoDB).
 - payment system will come soon.
